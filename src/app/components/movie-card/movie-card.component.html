@@ -1,0 +1,19 @@
+<div class="movieWrapper">
+  <div class="movieImage">
+    <img alt="movie poster" />
+  </div>
+  <div class="movieInfo">
+    <div class="movieTitle">{{ movie.title }}</div>
+    <div class="movieDescription">
+      {{ getShortText(movie.description, 75) }}
+    </div>
+    <div class="movieGenres" *ngIf="movie.genres">
+        <div class="text-sm mr-4">Genres:</div>
+        <div class="genres">
+            <div *ngFor="let genre of getGenreArray(movie.genres)" class="badge mr-2">
+                {{ genre }}
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

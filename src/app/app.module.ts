@@ -13,12 +13,18 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderInterceptor } from './core/loader.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HeaderComponent } from './components/header/header.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

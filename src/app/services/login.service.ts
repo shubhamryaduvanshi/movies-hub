@@ -20,6 +20,10 @@ export class LoginService {
     return this._http.post("https://demo.credy.in/api/v1/usermodule/login/", data);
   }
 
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
   logout() {
     localStorage.removeItem('token');
     this._router.navigate(['/login']);

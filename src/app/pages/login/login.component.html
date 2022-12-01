@@ -48,10 +48,10 @@
             formControlName="password"
             placeholder="Enter password"
           />
-          <!-- <mat-icon
+          <mat-icon
               class="password-icon"
               (click)="showPassword = !showPassword"
-              >{{ showPassword ? "visibility" : "visibility_off" }}</mat-icon> -->
+              >{{ showPassword ? "visibility" : "visibility_off" }}</mat-icon>
         </div>
         <div
           *ngIf="password?.invalid && (password?.dirty || password?.touched)"

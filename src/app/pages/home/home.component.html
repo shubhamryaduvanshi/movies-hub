@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div *ngIf="_loaderService.isLoading | async" class="loader-container">
+  <mat-spinner></mat-spinner>
+</div>
+
+<app-header></app-header>
+<div *ngFor="let movie of moviesCollection.results">
+  <app-movie-card [movie]="movie"></app-movie-card>
+</div>
+
