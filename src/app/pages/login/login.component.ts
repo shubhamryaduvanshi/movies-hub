@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { LoginService } from '../../services/login.service';
 import { LoaderService } from 'src/app/core/loader.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { LoginResponse } from 'src/app/types';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,12 +12,17 @@ import { LoginResponse } from 'src/app/types';
 export class LoginComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder,
-    private _authService: AuthService,
+    private _loginService: LoginService,
     public _loaderService: LoaderService,
-    private _snackbarService: SnackbarService
+    private _snackbarService: SnackbarService,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
+    //  Todo: To remove token from local storage if not valid/expired
+    if (this._loginService.isLoggedIn()) {
+      this._router.navigate(['']);
+    }
   }
 
   get userName() { return this.loginForm.get('username'); }
@@ -33,11 +38,11 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid) {
       return this.loginForm.markAllAsTouched();
     }
-    this._authService.login(this.loginForm.value).subscribe((res: any) => {
+    this._loginService.login(this.loginForm.value).subscribe((res: any) => {
       if (res.is_success) {
         this._snackbarService.openSnackBar('Login successfull', 'Close', 3000);
-        console.log(res);
-
+        localStorage.setItem('token', res.data.token);
+        this._router.navigate(['']);
       }
     }, (err) => {
       this._snackbarService.openSnackBar("Invalid username or password", "Close", 4000);
