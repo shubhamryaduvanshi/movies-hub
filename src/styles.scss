@@ -1,1 +1,248 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Shadows+Into+Light&display=swap");
+
+:root {
+  --page-text-color: rgb(40, 39, 39);
+  --page-background-color: rgb(255, 255, 255);
+  --button-text-color: rgb(255, 255, 255);
+  --button-background-color: #3069b2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.text-xs {
+  font-size: 0.7rem;
+}
+.text-sm {
+  font-size: 0.8rem;
+}
+.text-md {
+  font-size: 1rem;
+}
+.text-xl {
+  font-size: 1.2rem;
+}
+.text-2xl {
+  font-size: 1.6rem;
+}
+.text-3xl {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.font-normal {
+  font-weight: 500;
+}
+.font-bold {
+  font-weight: 600;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// padding typography starts here
+
+.pt-0 {
+  padding-top: 0;
+}
+
+.p-2 {
+  padding: 2px;
+}
+.p-3 {
+  padding: 3px;
+}
+.p-4 {
+  padding: 4px;
+}
+
+// margin typography starts here
+
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mr-2 {
+  margin-right: 2px;
+}
+.mr-4 {
+  margin-right: 4px;
+}
+.mr-6 {
+  margin-right: 6px;
+}
+.mr-8 {
+  margin-right: 8px;
+}
+.ml-6 {
+  margin-left: 6px;
+}
+.ml-8 {
+  margin-left: 8px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-4 {
+  margin-bottom: 4px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+// width typography starts here
+
+.w-20 {
+  width: 20%;
+}
+
+.w-30 {
+  width: 30%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-75 {
+  width: 70%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+// layout typography starts here
+
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.self-center {
+  align-self: center;
+}
+.self-end {
+  align-self: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+
+.notifier-snackbar-success {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.notifier-snackbar-error {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.notifier-snackbar-info {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.badge {
+  border-radius: 25px;
+  padding: 0px 5px;
+  font-size: 10px;
+  color: white;
+}
+
+.badge-common {
+  background-color: #8c7fe7;
+}
+
+.badge-success {
+  background-color: #4caf50;
+}
+
+.opac-50 {
+  opacity: 0.5;
+}
+.opac-75 {
+  opacity: 0.75;
+}
+
+.common-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  background: var(--button-background-color);
+  border-radius: 3px;
+  color: var(--button-text-color);
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  &:active {
+    background: #185aaf;
+  }
+}
+.outline-button {
+  padding: 8px 10px;
+  background: var(--button-text-color);
+  border-radius: 3px;
+  color: var(--button-background-color);
+  font-size: 15px;
+  border: 1px solid var(--button-background-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:active {
+    border: 2px solid var(--button-background-color);
+  }
+}
+
+.loader-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,81 @@
+<!-- <div *ngIf="true" class="loader-container"> -->
+<div *ngIf="_loaderService.isLoading | async" class="loader-container">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="wrapper">
+  <div class="login-container">
+    <div class="form-header">
+      <p class="brand-name">Movies Hub</p>
+      <div class="login-info">
+        <div class="text-xs">Welcome back !!!</div>
+        <div class="text-3xl pt-1">Log in</div>
+      </div>
+    </div>
+    <form
+      [formGroup]="loginForm"
+      class="form-Container"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="username"
+          placeholder="Enter username"
+        />
+        <div
+          *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)"
+          class="input-error"
+        >
+          <div *ngIf="userName?.errors?.['required']">
+            Username is required.
+          </div>
+          <div *ngIf="userName?.errors?.['minlength']">
+            Username must be at least 3 characters long.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-icon-container">
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Enter password"
+          />
+          <!-- <mat-icon
+              class="password-icon"
+              (click)="showPassword = !showPassword"
+              >{{ showPassword ? "visibility" : "visibility_off" }}</mat-icon> -->
+        </div>
+        <div
+          *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+          class="input-error"
+        >
+          <div *ngIf="password?.errors?.['required']">
+            Password is required.
+          </div>
+          <div *ngIf="password?.errors?.['minlength']">
+            Password must be at least 6 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="login-btn pt-2">
+        <button type="submit" class="login-btn">Login</button>
+      </div>
+    </form>
+
+    <!-- <div class="form-footer">
+      <div class="line"></div>
+      <div class="content">
+        <div class="text-xs">Don't have an account? Contact</div>
+        <a>Admin</a>
+      </div>
+    </div> -->
+  </div>
+</div>
