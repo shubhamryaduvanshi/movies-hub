@@ -22,6 +22,7 @@
          "https://demo.credy.in/api/v1/maya/movies/".
   - For each movie card fetch the poster from "https://ui-avatars.com/".
   - If movies are not fetched then give the fetch button.
+  - Can view the details of movie on click of view dwtails button.
   - Added Pagination at the bottom.
   - Search Feature (Needed optimization) 
 
