@@ -3,7 +3,70 @@
 </div>
 
 <app-header></app-header>
-<div *ngFor="let movie of moviesCollection.results">
-  <app-movie-card [movie]="movie"></app-movie-card>
+
+<div class="search-container" *ngIf="!isErrorOccured && showSearchContainer">
+  <!-- close icon -->
+  <div class="close-icon" (click)="toggleSearchBar()">
+    <mat-icon>close</mat-icon>
+  </div>
+  <form [formGroup]="searchForm">
+    <input
+      type="text"
+      class="search_input"
+      placeholder="Search by Title"
+      formControlName="search"
+    />
+  </form>
+  <!-- <button class="outline-button" disabled>Search</button> -->
+</div>
+<div
+  class="search-btn-container"
+  *ngIf="!isErrorOccured && !showSearchContainer"
+>
+  <button class="outline-button" (click)="toggleSearchBar()">Search</button>
 </div>
 
+<div class="container" *ngIf="!isErrorOccured">
+  <div
+    class="moviesCollectionContainer"
+    *ngIf="moviesCollectionTemp.count != 0"
+  >
+    <div
+      *ngFor="let movie of moviesCollectionTemp.results"
+      class="moviesContainer"
+    >
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </div>
+  </div>
+  <div
+    class="no-result-found-container"
+    *ngIf="moviesCollectionTemp.count == 0"
+  >
+    <h3>No Movies Found</h3>
+    <p>Please reset the search to see all the movies.</p>
+    <button class="outline-button" (click)="resetSearch()">Reset Search</button>
+  </div>
+</div>
+
+<div class="refetch-container" *ngIf="isErrorOccured">
+  <div class="img-container">
+    <img src="../../../assets/505_img.jpg" alt="Error" />
+  </div>
+  <div class="title">Oops! Something went wrong.</div>
+  <p>
+    The server encountered an error while processing your request. Please try
+    again.
+  </p>
+  <button class="outline-button" (click)="refetchMovies()">Re-fetch</button>
+</div>
+
+<div *ngIf="!isErrorOccured && moviesCollectionTemp.count != 0">
+  <mat-paginator
+    [length]="300"
+    [pageSizeOptions]="[10]"
+    [pageIndex]="currentPageCount"
+    aria-label="Select page"
+    (page)="onPaginateChange($event)"
+  >
+  </mat-paginator>
+</div>

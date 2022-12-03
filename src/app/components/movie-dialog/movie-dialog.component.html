@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="image-container">
+    <img [src]="movie?.poster" alt="Movie Poster" />
+  </div>
+
+  <div class="info-container">
+    <div class="movie-container">
+    <div class="title">{{ movie?.title }}</div>
+    <div class="description">{{ movie?.description }}</div>
+    <div class="genres-container" *ngIf="movie.genres.length">
+      <div class="text-sm mr-4">Genres:</div>
+      <div class="genres">
+        <div *ngFor="let genre of movie.genres" class="badge mr-2">
+          {{ genre }}
+        </div>
+      </div>
+    </div>
+    </div>
+    <button class="outline-button" (click)="onCancel()">Close</button>
+  </div>
+</div>

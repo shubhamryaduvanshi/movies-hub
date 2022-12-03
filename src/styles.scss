@@ -3,8 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Shadows+Into+Light&display=swap");
 
 :root {
-  --page-text-color: rgb(40, 39, 39);
+  --page-text-primary-color: rgb(55, 53, 53);
+  --page-text-secondary-color: #3069b2;
   --page-background-color: rgb(255, 255, 255);
+  --page-background-secondary-color: #fff;
   --button-text-color: rgb(255, 255, 255);
   --button-background-color: #3069b2;
 }
@@ -17,6 +19,7 @@
 
 body {
   font-family: "Poppins", sans-serif !important;
+  background-color: var(--page-background-color);
 }
 
 .text-xs {
@@ -177,17 +180,9 @@ body {
   border-radius: 20px;
   padding: 0px 8px;
   font-size: 12px;
-  background-color: #8c7fe7;
-  color: white;
+  color: var(--page-text-secondary-color);
   margin: 2px;
-}
-
-.badge-common {
-  background-color: #8c7fe7;
-}
-
-.badge-success {
-  background-color: #4caf50;
+  border: 1px solid #c7c7ff;
 }
 
 .opac-50 {
@@ -200,9 +195,10 @@ body {
 .common-button {
   display: flex;
   align-items: center;
-  padding: 8px 10px;
+  justify-content: center;
+  padding: 4px 10px;
   background: var(--button-background-color);
-  border-radius: 3px;
+  border-radius: 5px;
   color: var(--button-text-color);
   font-size: 15px;
   border: none;
@@ -226,12 +222,22 @@ body {
 }
 
 .loader-container {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.73);
   z-index: 99;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.mat-dialog-container{
+  background: var(--page-background-color);
+  color: var(--page-text-primary-color);
+}
+
+.mat-paginator-container{
+  background: var(--page-background-secondary-color);
+  color: var(--page-text-primary-color);
 }

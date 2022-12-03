@@ -1,0 +1,136 @@
+.container {
+  justify-content: center;
+  .moviesCollectionContainer {
+    margin: 40px auto;
+    height: 100%;
+    width: 100%;
+    max-width: 1280px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+    .moviesContainer {
+      margin: 0 auto;
+    }
+  }
+  .no-result-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    min-height: 50vh;
+    padding: 20px;
+    color: var(--page-text-primary-color);
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.search-container {
+  width: 50%;
+  margin: 19px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 22px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px gainsboro;
+  position: relative;
+  .close-icon {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    background: var(--button-background-color);
+    cursor: pointer;
+    color: var(--button-text-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    mat-icon {
+      font-size: 16px;
+      height: 16px;
+      width: 16px;
+    }
+  }
+  form {
+    width: 100%;
+    .search_input {
+      width: 100%;
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0 10px;
+    }
+  }
+}
+
+.search-btn-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin: 23px auto 0 auto;
+}
+
+.refetch-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  z-index: 1;
+  color: var(--page-text-primary-color);
+  .title {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  button {
+    margin-top: 15px;
+  }
+}
+
+// Media Query
+
+@media screen and (max-width: 1024px) {
+  .container {
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 97%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    .moviesCollectionContainer {
+      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      width: 97%;
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .container {
+    .moviesCollectionContainer {
+      gap: 20px;
+      grid-template-columns: 1fr;
+      width: 97%;
+    }
+  }
+  .search-container {
+    width: 90%;
+  }
+}
